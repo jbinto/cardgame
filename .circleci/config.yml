@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run: echo "this is the first step in the build job"
+      - restore_cache:
+         keys:
+           - my_fancy_cache
       - run:
           name: Run yarn
           command: yarn
@@ -20,6 +23,10 @@ jobs:
       - run: 
           name: Run jest
           command: yarn test
+      - save_cache:
+          key: my_fancy_cache
+          paths:
+            - ./node_modules
 
 # Orchestrate our job run sequence
 workflows:
