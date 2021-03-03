@@ -8,7 +8,9 @@ jobs:
     steps:
       - checkout
       - run: echo "this is the first step in the build job"
-
+      - run:
+          name: Run lint
+          command: yarn lint
 
 # Orchestrate our job run sequence
 workflows:
