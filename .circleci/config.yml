@@ -10,7 +10,7 @@ jobs:
       - run: echo "this is the first step in the build job"
       - restore_cache:
          keys:
-           - my_fancy_cache
+           - my_fancy_cache-{{ checksum "yarn.lock" }}
       - run:
           name: Run yarn
           command: yarn
