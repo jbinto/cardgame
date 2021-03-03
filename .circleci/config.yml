@@ -25,13 +25,11 @@ jobs:
           name: Run jest
           command: yarn test
       - save_cache:
-          key: 
-            - my_fancy_cache-{{ checksum "yarn.lock" }}
+          key: my_fancy_cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - save_cache:
-          key: 
-            - my_fancy_cache
+          key: my_fancy_cache
           paths:
             - ./node_modules
 
