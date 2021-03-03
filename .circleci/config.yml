@@ -14,6 +14,12 @@ jobs:
       - run:
           name: Run lint
           command: yarn lint
+      - run:
+          name: Run tsc
+          command: yarn tsc
+      - run: 
+          name: Run jest
+          command: yarn test
 
 # Orchestrate our job run sequence
 workflows:
