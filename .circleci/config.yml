@@ -11,6 +11,7 @@ jobs:
       - restore_cache:
          keys:
            - my_fancy_cache-{{ checksum "yarn.lock" }}
+           - my_fancy_cache_fallback
       - run:
           name: Run yarn
           command: yarn
@@ -24,7 +25,9 @@ jobs:
           name: Run jest
           command: yarn test
       - save_cache:
-          key: my_fancy_cache-{{ checksum "yarn.lock" }}
+          key: 
+            - my_fancy_cache-{{ checksum "yarn.lock" }}
+            - my_fancy_cache_fallback
           paths:
             - ./node_modules
 
