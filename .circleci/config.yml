@@ -9,9 +9,6 @@ jobs:
       - checkout
       - run: echo "this is the first step in the build job"
       - run:
-          name: Run yarn
-          command: yarn
-      - run:
           name: Run lint
           command: yarn lint
 
